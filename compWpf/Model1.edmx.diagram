@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8934075555024a04ab3960266da2bf2d" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.виды" Width="1.5" PointX="0.75" PointY="2.5" />
+        <EntityTypeShape EntityType="Model.дистанции" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="Model.слеты" Width="1.5" PointX="0.75" PointY="5.25" />
+        <EntityTypeShape EntityType="Model.туристы" Width="1.5" PointX="9.75" PointY="2.875" />
+        <EntityTypeShape EntityType="Model.школы" Width="1.5" PointX="5.25" PointY="0.875" />
+        <EntityTypeShape EntityType="Model.штрафы" Width="1.5" PointX="12" PointY="7.25" />
+        <EntityTypeShape EntityType="Model.этапы" Width="1.5" PointX="5.25" PointY="6.625" />
+        <AssociationConnector Association="Model.FK__дистанции__000000000000004D" />
+        <AssociationConnector Association="Model.FK__дистанции__0000000000000051" />
+        <AssociationConnector Association="Model.FK__этапы__000000000000006E" />
+        <AssociationConnector Association="Model.FK__туристы__00000000000000BF" />
+        <AssociationConnector Association="Model.FK__туристы__00000000000000C3" />
+        <AssociationConnector Association="Model.FK__штрафы__0000000000000235" />
+        <EntityTypeShape EntityType="Model.экипажи" Width="1.5" PointX="7.5" PointY="4" />
+        <AssociationConnector Association="Model.FK__экипажи__0000000000000097" />
+        <AssociationConnector Association="Model.FK__экипажи__0000000000000096" />
+        <AssociationConnector Association="Model.матросы" />
+        <EntityTypeShape EntityType="Model.результаты" Width="1.5" PointX="9.75" PointY="7.125" />
+        <AssociationConnector Association="Model.FK__результаты__0000000000000217" />
+        <AssociationConnector Association="Model.FK__штрафы__0000000000000231" />
+        <EntityTypeShape EntityType="Model.суда" Width="1.5" PointX="0.75" PointY="8.875" />
+        <AssociationConnector Association="Model.FK__экипажи__0000000000000092" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

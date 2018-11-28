@@ -1,0 +1,49 @@
+﻿<Window x:Class="compWpf.выборListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:compWpf"
+        mc:Ignorable="d"
+        Title="выборListView" Height="450" Width="800" Loaded="Window_Loaded" FontSize="20" >
+    <Grid>
+        <Grid.Resources>
+            <Style x:Key="RowColorStyle" TargetType="ListViewItem">
+                <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+                <Style.Triggers>
+                    <Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                        <Setter Property="Background" Value="LightBlue" />
+                    </Trigger>
+                    <!--<Trigger Property="ItemsControl.AlternationIndex"  Value="1">
+                        <Setter Property="Background" Value="LightGray" />
+                    </Trigger>-->
+                    <Trigger Property="IsSelected" Value="True">
+                        <Setter Property="Background" Value="Orange"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+        </Grid.Resources>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="*"/>
+            <ColumnDefinition Width="0.5*" />
+        </Grid.ColumnDefinitions>
+        <ListView Name="listView1" FontSize="20" ItemContainerStyle="{StaticResource RowColorStyle}" AlternationCount="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="вид" DisplayMemberBinding="{Binding  Path=наимен}" Width="300" />
+                    <GridViewColumn  Header="дистанций" DisplayMemberBinding="{Binding  Path=дистанций}" Width="100" />
+                    <!--<GridViewColumn Header="порядок" DisplayMemberBinding="{Binding  Path=порядок}" Width="100" />-->
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel Grid.Column="1" Orientation="Vertical" >
+            <TextBlock  FontSize="20"  Margin="0,20,0,0" Text="Выберите вид туризма" TextAlignment="Center" />
+            <TextBlock Name="актСлет" FontSize="20"  Margin="0,20,0,0"/>
+            <Button Name="выбрать" Content="Выбрать" Click="выбрать_Click" Width="100"  Margin="0,20,0,0" />
+            <Button Name="отмена" Content="Отмена" Click="отмена_Click"  Width="100"  Margin="0,20,0,0" />
+        </StackPanel>
+
+       
+    </Grid>
+</Window>

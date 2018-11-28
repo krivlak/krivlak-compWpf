@@ -1,0 +1,79 @@
+﻿<Window x:Class="compWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:compWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="400" Width="750" Icon="рисунки\ПАРУС.ICO" Foreground="#FFF7EBEB">
+    <!--<Window.Background>
+        <ImageBrush ImageSource="рисунки/x_75c67d97.jpg" Stretch="Uniform" TileMode="FlipX"/>
+    </Window.Background>-->
+    <!--<Window.Background>
+        --><!--<ImageBrush ImageSource="c:\vs2017\слеты\tvtSqlite\x_75c67d97.jpg" Stretch="None" />--><!--
+    </Window.Background>-->
+    <Grid Margin="14,0,2,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <!--<StackPanel>-->
+            <Menu   Grid.Row="0"  FontFamily="Arial" FontSize="22" FontWeight="Bold"  VerticalAlignment="Top">
+                <MenuItem Header="Списки">
+                    <MenuItem  Name="Слеты" Header="Сменить слет"  Click="Слеты_Click"/>
+                    <MenuItem  Name="Виды" Header="Виды туризма"  Click="Виды_Click"/>
+                    <MenuItem  Name="Школы" Header="Школы , клубы"  Click="Школы_Click"/>
+                    <MenuItem  Name="Туристы" Header="Туристы"  Click="Туристы_Click"/>
+                    <MenuItem  Name="Дистанции" Header="Дистанции"  Click="Дистанции_Click"/>
+                <MenuItem  Name="Суда" Header="Суда"  Click="Суда_Click"/>
+                <MenuItem  Name="Этапы" Header="Этапы"  Click="Этапы_Click"/>
+                </MenuItem>
+                <MenuItem Header="Результаты">
+                    <MenuItem  Name="Заявки" Header="Заявки"  Click="Заявки_Click"/>
+                    <MenuItem  Name="штрафыWin" Header="Результаты"  Click="штрафыWin_Click"/>
+                    <MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />
+                <!--<MenuItem Name="проба" Header=" проба" Click="проба_Click_1" />-->
+                <!--<MenuItem Name="все" Header="Все экипажи" Click="все_Click_1"/>
+                    <MenuItem Name="попытки" Header="Результаты" Click="попытки_Click" />
+                <MenuItem Name="список" Header="Список Результатов" Click="Результаты_Click" />-->
+
+
+
+                <!--<MenuItem  Name="Результаты" Header="Результаты"  Click="Результаты_Click"/>
+                    <MenuItem  Name="штрафы" Header="Штрафы"  Click="штрафы_Click"/>-->
+                </MenuItem>
+        
+            <!--<MenuItem Header="Результаты_Win">
+                <MenuItem  Name="заявкиWin" Header="Заявки"  Click="заявкиWin_Click"/>
+                <MenuItem  Name="РезультатыWin" Header="Результаты"  Click="РезультатыWin_Click"/>
+                <MenuItem  Name="штрафыWin" Header="Штрафы"  Click="штрафыWin_Click"/>
+            </MenuItem>-->
+                
+            <!--<MenuItem Header="Анализ">
+                    <MenuItem  Name="Все" Header="Вск результаты"  Click="Все_Click"/>
+                    <MenuItem  Name="проба" Header="Проба"  Click="проба_Click"/>
+                    <MenuItem  Name="источник" Header="источник"  Click="источник_Click"/>
+                    <MenuItem  Name="winForm" Header="winForm"  Click="winForm_Click"/>
+                    <MenuItem  Name="дата44" Header="дата"  Click="дата44_Click"/>
+                    <MenuItem  Name="выбор33" Header="выбор из ListBox"  Click="выбор33_Click"/>
+                    <MenuItem  Name="выбор44" Header="выбор из ListView"  Click="выбор44_Click"/>
+                    <MenuItem  Name="выбор55" Header="TabControl"  Click="выбор55_Click"/>
+                    <MenuItem  Name="секундомер55" Header="Секундомер"  Click="секундомер55_Click"/>
+                    <MenuItem  Name="клава44" Header="клава"  Click="клава44_Click"/>
+                    <MenuItem  Name="копировать4" Header="Copy"  Click="копировать4_Click"/>
+            </MenuItem>-->
+            <MenuItem  Name="Выход" Header="Выход"  Click="Выход_Click"/>
+
+            </Menu>
+        <!--<StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Image  Source="рисунки/x_75c67d97.jpg"  VerticalAlignment="Top"  HorizontalAlignment="Left"   Width="300"  />
+            <Image  Source="рисунки/x_75c67d97.jpg"  VerticalAlignment="Top"  HorizontalAlignment="Left"  Width="300"  />
+            <Image  Source="рисунки/x_75c67d97.jpg"  VerticalAlignment="Top"  HorizontalAlignment="Left"  Width="300"  />
+            <Image  Source="рисунки/x_75c67d97.jpg"  VerticalAlignment="Top"  HorizontalAlignment="Left"  Width="300"  />
+
+        </StackPanel>-->
+
+        <!--</StackPanel>-->
+
+    </Grid>
+</Window>

@@ -1,0 +1,17 @@
+﻿<Window x:Class="compWpf.выбор_даты"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:compWpf"
+        mc:Ignorable="d"
+        Title="выбор_даты" Height="359.457" Width="671.429">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <Calendar  Grid.Column="0"  Grid.Row="0" Calendar.SelectedDatesChanged="Calendar_SelectedDatesChanged" />
+
+    </Grid>
+</Window>

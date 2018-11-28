@@ -1,0 +1,554 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1C95EBF1-E711-4D0A-8BD3-C50852734D3C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>compWpf</RootNamespace>
+    <AssemblyName>compWpf</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.2.0\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="виды.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="все_результаты.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="все_результаты.Designer.cs">
+      <DependentUpon>все_результаты.cs</DependentUpon>
+    </Compile>
+    <Compile Include="выбор1дистанции.xaml.cs">
+      <DependentUpon>выбор1дистанции.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор2Vдистанции.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="выбор2Vдистанции.designer.cs">
+      <DependentUpon>выбор2Vдистанции.cs</DependentUpon>
+    </Compile>
+    <Compile Include="выборListView.xaml.cs">
+      <DependentUpon>выборListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выборListвида.xaml.cs">
+      <DependentUpon>выборListвида.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выборVдистанции.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="выборVдистанции.designer.cs">
+      <DependentUpon>выборVдистанции.cs</DependentUpon>
+    </Compile>
+    <Compile Include="выборVтуристов.xaml.cs">
+      <DependentUpon>выборVтуристов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выборVучастников.xaml.cs">
+      <DependentUpon>выборVучастников.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор_вида.xaml.cs">
+      <DependentUpon>выбор_вида.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор_даты.xaml.cs">
+      <DependentUpon>выбор_даты.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Выбор_дистанции.xaml.cs">
+      <DependentUpon>Выбор_дистанции.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор_кода_дистанции.xaml.cs">
+      <DependentUpon>выбор_кода_дистанции.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор_туриста.xaml.cs">
+      <DependentUpon>выбор_туриста.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="выбор_школы.xaml.cs">
+      <DependentUpon>выбор_школы.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="дистанции.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="дополнения.cs" />
+    <Compile Include="источник.xaml.cs">
+      <DependentUpon>источник.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="календарьWPF.xaml.cs">
+      <DependentUpon>календарьWPF.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="клава.xaml.cs">
+      <DependentUpon>клава.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="классы.cs" />
+    <Compile Include="команды.xaml.cs">
+      <DependentUpon>команды.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="окно1результатов.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="окно1результатов.designer.cs">
+      <DependentUpon>окно1результатов.cs</DependentUpon>
+    </Compile>
+    <Compile Include="окно2результатов.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="окно2результатов.designer.cs">
+      <DependentUpon>окно2результатов.cs</DependentUpon>
+    </Compile>
+    <Compile Include="проба.xaml.cs">
+      <DependentUpon>проба.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="пробаTab.xaml.cs">
+      <DependentUpon>пробаTab.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="проба_календ.xaml.cs">
+      <DependentUpon>проба_календ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="результаты.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="результаты1дистанция.xaml.cs">
+      <DependentUpon>результаты1дистанция.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="секундомер.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="секундомер.Designer.cs">
+      <DependentUpon>секундомер.cs</DependentUpon>
+    </Compile>
+    <Compile Include="слеты.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="список_видов.xaml.cs">
+      <DependentUpon>список_видов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_дистанций.xaml.cs">
+      <DependentUpon>список_дистанций.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_результатов.xaml.cs">
+      <DependentUpon>список_результатов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_слетов.xaml.cs">
+      <DependentUpon>список_слетов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_судов.xaml.cs">
+      <DependentUpon>список_судов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_туристов.xaml.cs">
+      <DependentUpon>список_туристов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_участников.xaml.cs">
+      <DependentUpon>список_участников.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_школ.xaml.cs">
+      <DependentUpon>список_школ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_экипажей.xaml.cs">
+      <DependentUpon>список_экипажей.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="список_этапов.xaml.cs">
+      <DependentUpon>список_этапов.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="суда.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="таблица_этапов.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="таблица_этапов.Designer.cs">
+      <DependentUpon>таблица_этапов.cs</DependentUpon>
+    </Compile>
+    <Compile Include="туристы.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="школы.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="штрафы.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="штрафы1время.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="штрафы1время.Designer.cs">
+      <DependentUpon>штрафы1время.cs</DependentUpon>
+    </Compile>
+    <Compile Include="штрафы_этапы.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="штрафы_этапы.Designer.cs">
+      <DependentUpon>штрафы_этапы.cs</DependentUpon>
+    </Compile>
+    <Compile Include="экипажи.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="этапы.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="выбор1дистанции.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выборListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выборListвида.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выборVтуристов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выборVучастников.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выбор_вида.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выбор_даты.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Выбор_дистанции.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выбор_кода_дистанции.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выбор_туриста.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="выбор_школы.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="источник.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="календарьWPF.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="клава.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="команды.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="проба.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="пробаTab.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="проба_календ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="результаты1дистанция.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_видов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_дистанций.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_результатов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_слетов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_судов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_туристов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_участников.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_школ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_экипажей.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="список_этапов.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="все_результаты.resx">
+      <DependentUpon>все_результаты.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="выбор2Vдистанции.resx">
+      <DependentUpon>выбор2Vдистанции.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="выборVдистанции.resx">
+      <DependentUpon>выборVдистанции.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="окно1результатов.resx">
+      <DependentUpon>окно1результатов.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="окно2результатов.resx">
+      <DependentUpon>окно2результатов.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="секундомер.resx">
+      <DependentUpon>секундомер.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="таблица_этапов.resx">
+      <DependentUpon>таблица_этапов.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="штрафы1время.resx">
+      <DependentUpon>штрафы1время.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="штрафы_этапы.resx">
+      <DependentUpon>штрафы_этапы.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="ВниманиеЖ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ВниманиеМ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="старт.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="СтартЖ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="СтартМ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ФинишЖ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ФинишМ.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="рисунки\1-076.ICO" />
+    <Resource Include="рисунки\CHERRY.ICO" />
+    <Resource Include="рисунки\COWBOY.ICO" />
+    <Resource Include="рисунки\CP.ICO" />
+    <Resource Include="рисунки\down.bmp" />
+    <Resource Include="рисунки\up.bmp" />
+    <Resource Include="рисунки\WILMA.ICO" />
+    <Resource Include="рисунки\КОНЬ.ICO" />
+    <Resource Include="рисунки\ПАРУС.ICO" />
+    <Resource Include="рисунки\СИНИЙ.ICO" />
+    <Resource Include="рисунки\x_75c67d97.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+    if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+    xcopy /s /y "$(SolutionDir)packages\Microsoft.SqlServer.Compact.4.0.8876.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

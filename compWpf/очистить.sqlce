@@ -1,0 +1,22 @@
+﻿delete from штрафы ;
+go
+delete from результаты  ;
+go
+delete from экипажи ;
+go
+delete from этапы  ;
+go
+delete from дистанции ;
+go
+delete from виды ;
+go
+delete from матросы ;
+go
+delete from туристы  ;
+go
+delete from школы ;
+go
+delete from суда;
+go
+delete from слеты ;
+go

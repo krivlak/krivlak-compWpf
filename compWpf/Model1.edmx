@@ -1,0 +1,841 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище Model" Provider="System.Data.SqlServerCe.4.0" ProviderManifestToken="4.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="виды">
+          <Key>
+            <PropertyRef Name="вид" />
+          </Key>
+          <Property Name="вид" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="дистанции">
+          <Key>
+            <PropertyRef Name="дистанция" />
+          </Key>
+          <Property Name="дистанция" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="вид" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+          <Property Name="слет" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="матросы">
+          <Key>
+            <PropertyRef Name="экипаж" />
+            <PropertyRef Name="турист" />
+          </Key>
+          <Property Name="экипаж" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="турист" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="результаты">
+          <Key>
+            <PropertyRef Name="результат" />
+          </Key>
+          <Property Name="результат" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="попытка" Type="int" Nullable="false" />
+          <Property Name="экипаж" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="время_мин" Type="int" Nullable="false" />
+          <Property Name="время_сек" Type="int" Nullable="false" />
+          <Property Name="секунд" Type="int" Nullable="false" />
+          <Property Name="штраф" Type="int" Nullable="false" />
+          <Property Name="итог" Type="int" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+          <Property Name="прим" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="слеты">
+          <Key>
+            <PropertyRef Name="слет" />
+          </Key>
+          <Property Name="слет" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+          <Property Name="дата_с" Type="datetime" Nullable="false" />
+          <Property Name="дата_по" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="суда">
+          <Key>
+            <PropertyRef Name="судно" />
+          </Key>
+          <Property Name="судно" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="туристы">
+          <Key>
+            <PropertyRef Name="турист" />
+          </Key>
+          <Property Name="слет" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="школа" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="турист" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="фамилия" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="муж" Type="bit" Nullable="false" />
+          <Property Name="младший" Type="bit" Nullable="false" />
+          <Property Name="прим" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="школы">
+          <Key>
+            <PropertyRef Name="школа" />
+          </Key>
+          <Property Name="школа" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="штрафы">
+          <Key>
+            <PropertyRef Name="штраф" />
+          </Key>
+          <Property Name="штраф" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="результат" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="секунд" Type="int" Nullable="false" />
+          <Property Name="прим" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="этап" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="экипажи">
+          <Key>
+            <PropertyRef Name="экипаж" />
+          </Key>
+          <Property Name="дистанция" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="экипаж" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="судно" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="прим" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="школа" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="номер" Type="int" Nullable="false" />
+          <Property Name="место" Type="int" Nullable="false" />
+          <Property Name="итог" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="этапы">
+          <Key>
+            <PropertyRef Name="этап" />
+          </Key>
+          <Property Name="этап" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="дистанция" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="наимен" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="судья" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="порядок" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__дистанции__000000000000004D">
+          <End Role="виды" Type="Self.виды" Multiplicity="1" />
+          <End Role="дистанции" Type="Self.дистанции" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="виды">
+              <PropertyRef Name="вид" />
+            </Principal>
+            <Dependent Role="дистанции">
+              <PropertyRef Name="вид" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__дистанции__0000000000000051">
+          <End Role="слеты" Type="Self.слеты" Multiplicity="0..1" />
+          <End Role="дистанции" Type="Self.дистанции" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="слеты">
+              <PropertyRef Name="слет" />
+            </Principal>
+            <Dependent Role="дистанции">
+              <PropertyRef Name="слет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__матросы__00000000000000D1">
+          <End Role="экипажи" Type="Self.экипажи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="матросы" Type="Self.матросы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="экипажи">
+              <PropertyRef Name="экипаж" />
+            </Principal>
+            <Dependent Role="матросы">
+              <PropertyRef Name="экипаж" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__матросы__00000000000000D5">
+          <End Role="туристы" Type="Self.туристы" Multiplicity="1" />
+          <End Role="матросы" Type="Self.матросы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="туристы">
+              <PropertyRef Name="турист" />
+            </Principal>
+            <Dependent Role="матросы">
+              <PropertyRef Name="турист" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__результаты__0000000000000217">
+          <End Role="экипажи" Type="Self.экипажи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="результаты" Type="Self.результаты" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="экипажи">
+              <PropertyRef Name="экипаж" />
+            </Principal>
+            <Dependent Role="результаты">
+              <PropertyRef Name="экипаж" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__туристы__00000000000000BF">
+          <End Role="слеты" Type="Self.слеты" Multiplicity="1" />
+          <End Role="туристы" Type="Self.туристы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="слеты">
+              <PropertyRef Name="слет" />
+            </Principal>
+            <Dependent Role="туристы">
+              <PropertyRef Name="слет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__туристы__00000000000000C3">
+          <End Role="школы" Type="Self.школы" Multiplicity="1" />
+          <End Role="туристы" Type="Self.туристы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="школы">
+              <PropertyRef Name="школа" />
+            </Principal>
+            <Dependent Role="туристы">
+              <PropertyRef Name="школа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__штрафы__0000000000000231">
+          <End Role="результаты" Type="Self.результаты" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="штрафы" Type="Self.штрафы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="результаты">
+              <PropertyRef Name="результат" />
+            </Principal>
+            <Dependent Role="штрафы">
+              <PropertyRef Name="результат" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__штрафы__0000000000000235">
+          <End Role="этапы" Type="Self.этапы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="штрафы" Type="Self.штрафы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="этапы">
+              <PropertyRef Name="этап" />
+            </Principal>
+            <Dependent Role="штрафы">
+              <PropertyRef Name="этап" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__экипажи__0000000000000092">
+          <End Role="суда" Type="Self.суда" Multiplicity="1" />
+          <End Role="экипажи" Type="Self.экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="суда">
+              <PropertyRef Name="судно" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="судно" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__экипажи__0000000000000096">
+          <End Role="школы" Type="Self.школы" Multiplicity="1" />
+          <End Role="экипажи" Type="Self.экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="школы">
+              <PropertyRef Name="школа" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="школа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__экипажи__0000000000000097">
+          <End Role="дистанции" Type="Self.дистанции" Multiplicity="1" />
+          <End Role="экипажи" Type="Self.экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="дистанции">
+              <PropertyRef Name="дистанция" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="дистанция" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__этапы__000000000000006E">
+          <End Role="дистанции" Type="Self.дистанции" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="этапы" Type="Self.этапы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="дистанции">
+              <PropertyRef Name="дистанция" />
+            </Principal>
+            <Dependent Role="этапы">
+              <PropertyRef Name="дистанция" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ModelContainer">
+          <EntitySet Name="виды" EntityType="Self.виды" store:Type="Tables" />
+          <EntitySet Name="дистанции" EntityType="Self.дистанции" store:Type="Tables" />
+          <EntitySet Name="матросы" EntityType="Self.матросы" store:Type="Tables" />
+          <EntitySet Name="результаты" EntityType="Self.результаты" store:Type="Tables" />
+          <EntitySet Name="слеты" EntityType="Self.слеты" store:Type="Tables" />
+          <EntitySet Name="суда" EntityType="Self.суда" store:Type="Tables" />
+          <EntitySet Name="туристы" EntityType="Self.туристы" store:Type="Tables" />
+          <EntitySet Name="школы" EntityType="Self.школы" store:Type="Tables" />
+          <EntitySet Name="штрафы" EntityType="Self.штрафы" store:Type="Tables" />
+          <EntitySet Name="экипажи" EntityType="Self.экипажи" store:Type="Tables" />
+          <EntitySet Name="этапы" EntityType="Self.этапы" store:Type="Tables" />
+          <AssociationSet Name="FK__дистанции__000000000000004D" Association="Self.FK__дистанции__000000000000004D">
+            <End Role="виды" EntitySet="виды" />
+            <End Role="дистанции" EntitySet="дистанции" />
+          </AssociationSet>
+          <AssociationSet Name="FK__дистанции__0000000000000051" Association="Self.FK__дистанции__0000000000000051">
+            <End Role="слеты" EntitySet="слеты" />
+            <End Role="дистанции" EntitySet="дистанции" />
+          </AssociationSet>
+          <AssociationSet Name="FK__матросы__00000000000000D1" Association="Self.FK__матросы__00000000000000D1">
+            <End Role="экипажи" EntitySet="экипажи" />
+            <End Role="матросы" EntitySet="матросы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__матросы__00000000000000D5" Association="Self.FK__матросы__00000000000000D5">
+            <End Role="туристы" EntitySet="туристы" />
+            <End Role="матросы" EntitySet="матросы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__результаты__0000000000000217" Association="Self.FK__результаты__0000000000000217">
+            <End Role="экипажи" EntitySet="экипажи" />
+            <End Role="результаты" EntitySet="результаты" />
+          </AssociationSet>
+          <AssociationSet Name="FK__туристы__00000000000000BF" Association="Self.FK__туристы__00000000000000BF">
+            <End Role="слеты" EntitySet="слеты" />
+            <End Role="туристы" EntitySet="туристы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__туристы__00000000000000C3" Association="Self.FK__туристы__00000000000000C3">
+            <End Role="школы" EntitySet="школы" />
+            <End Role="туристы" EntitySet="туристы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__штрафы__0000000000000231" Association="Self.FK__штрафы__0000000000000231">
+            <End Role="результаты" EntitySet="результаты" />
+            <End Role="штрафы" EntitySet="штрафы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__штрафы__0000000000000235" Association="Self.FK__штрафы__0000000000000235">
+            <End Role="этапы" EntitySet="этапы" />
+            <End Role="штрафы" EntitySet="штрафы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__экипажи__0000000000000092" Association="Self.FK__экипажи__0000000000000092">
+            <End Role="суда" EntitySet="суда" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+          <AssociationSet Name="FK__экипажи__0000000000000096" Association="Self.FK__экипажи__0000000000000096">
+            <End Role="школы" EntitySet="школы" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+          <AssociationSet Name="FK__экипажи__0000000000000097" Association="Self.FK__экипажи__0000000000000097">
+            <End Role="дистанции" EntitySet="дистанции" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+          <AssociationSet Name="FK__этапы__000000000000006E" Association="Self.FK__этапы__000000000000006E">
+            <End Role="дистанции" EntitySet="дистанции" />
+            <End Role="этапы" EntitySet="этапы" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="виды" EntityType="Model.виды" />
+          <EntitySet Name="дистанции" EntityType="Model.дистанции" />
+          <EntitySet Name="слеты" EntityType="Model.слеты" />
+          <EntitySet Name="туристы" EntityType="Model.туристы" />
+          <EntitySet Name="школы" EntityType="Model.школы" />
+          <EntitySet Name="штрафы" EntityType="Model.штрафы" />
+          <EntitySet Name="этапы" EntityType="Model.этапы" />
+          <AssociationSet Name="FK__дистанции__000000000000004D" Association="Model.FK__дистанции__000000000000004D">
+            <End Role="виды" EntitySet="виды" />
+            <End Role="дистанции" EntitySet="дистанции" />
+          </AssociationSet>
+          <AssociationSet Name="FK__дистанции__0000000000000051" Association="Model.FK__дистанции__0000000000000051">
+            <End Role="слеты" EntitySet="слеты" />
+            <End Role="дистанции" EntitySet="дистанции" />
+          </AssociationSet>
+          <AssociationSet Name="FK__этапы__000000000000006E" Association="Model.FK__этапы__000000000000006E">
+            <End Role="дистанции" EntitySet="дистанции" />
+            <End Role="этапы" EntitySet="этапы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__туристы__00000000000000BF" Association="Model.FK__туристы__00000000000000BF">
+            <End Role="слеты" EntitySet="слеты" />
+            <End Role="туристы" EntitySet="туристы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__туристы__00000000000000C3" Association="Model.FK__туристы__00000000000000C3">
+            <End Role="школы" EntitySet="школы" />
+            <End Role="туристы" EntitySet="туристы" />
+          </AssociationSet>
+          <AssociationSet Name="FK__штрафы__0000000000000235" Association="Model.FK__штрафы__0000000000000235">
+            <End Role="этапы" EntitySet="этапы" />
+            <End Role="штрафы" EntitySet="штрафы" />
+          </AssociationSet>
+          <EntitySet Name="экипажи" EntityType="Model.экипажи" />
+          <AssociationSet Name="FK__экипажи__0000000000000097" Association="Model.FK__экипажи__0000000000000097">
+            <End Role="дистанции" EntitySet="дистанции" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+          <AssociationSet Name="FK__экипажи__0000000000000096" Association="Model.FK__экипажи__0000000000000096">
+            <End Role="школы" EntitySet="школы" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+          <AssociationSet Name="матросы" Association="Model.матросы">
+            <End Role="экипажи" EntitySet="экипажи" />
+            <End Role="туристы" EntitySet="туристы" />
+          </AssociationSet>
+          <EntitySet Name="результаты" EntityType="Model.результаты" />
+          <AssociationSet Name="FK__результаты__0000000000000217" Association="Model.FK__результаты__0000000000000217">
+            <End Role="экипажи" EntitySet="экипажи" />
+            <End Role="результаты" EntitySet="результаты" />
+          </AssociationSet>
+          <AssociationSet Name="FK__штрафы__0000000000000231" Association="Model.FK__штрафы__0000000000000231">
+            <End Role="результаты" EntitySet="результаты" />
+            <End Role="штрафы" EntitySet="штрафы" />
+          </AssociationSet>
+          <EntitySet Name="суда" EntityType="Model.суда" />
+          <AssociationSet Name="FK__экипажи__0000000000000092" Association="Model.FK__экипажи__0000000000000092">
+            <End Role="суда" EntitySet="суда" />
+            <End Role="экипажи" EntitySet="экипажи" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="виды">
+          <Key>
+            <PropertyRef Name="вид" />
+          </Key>
+          <Property Name="вид" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="дистанции" Relationship="Model.FK__дистанции__000000000000004D" FromRole="виды" ToRole="дистанции" />
+        </EntityType>
+        <EntityType Name="дистанции">
+          <Key>
+            <PropertyRef Name="дистанция" />
+          </Key>
+          <Property Name="дистанция" Type="Guid" Nullable="false" />
+          <Property Name="вид" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <Property Name="слет" Type="Guid" />
+          <NavigationProperty Name="виды" Relationship="Model.FK__дистанции__000000000000004D" FromRole="дистанции" ToRole="виды" />
+          <NavigationProperty Name="слеты" Relationship="Model.FK__дистанции__0000000000000051" FromRole="дистанции" ToRole="слеты" />
+          <NavigationProperty Name="этапы" Relationship="Model.FK__этапы__000000000000006E" FromRole="дистанции" ToRole="этапы" />
+          <NavigationProperty Name="экипажи" Relationship="Model.FK__экипажи__0000000000000097" FromRole="дистанции" ToRole="экипажи" />
+        </EntityType>
+        <EntityType Name="слеты">
+          <Key>
+            <PropertyRef Name="слет" />
+          </Key>
+          <Property Name="слет" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <Property Name="дата_с" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="дата_по" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="дистанции" Relationship="Model.FK__дистанции__0000000000000051" FromRole="слеты" ToRole="дистанции" />
+          <NavigationProperty Name="туристы" Relationship="Model.FK__туристы__00000000000000BF" FromRole="слеты" ToRole="туристы" />
+        </EntityType>
+        <EntityType Name="туристы">
+          <Key>
+            <PropertyRef Name="турист" />
+          </Key>
+          <Property Name="слет" Type="Guid" Nullable="false" />
+          <Property Name="школа" Type="Guid" Nullable="false" />
+          <Property Name="турист" Type="Guid" Nullable="false" />
+          <Property Name="фамилия" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="имя" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="муж" Type="Boolean" Nullable="false" />
+          <Property Name="младший" Type="Boolean" Nullable="false" />
+          <Property Name="прим" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="слеты" Relationship="Model.FK__туристы__00000000000000BF" FromRole="туристы" ToRole="слеты" />
+          <NavigationProperty Name="школы" Relationship="Model.FK__туристы__00000000000000C3" FromRole="туристы" ToRole="школы" />
+          <NavigationProperty Name="экипажи" Relationship="Model.матросы" FromRole="туристы" ToRole="экипажи" />
+        </EntityType>
+        <EntityType Name="школы">
+          <Key>
+            <PropertyRef Name="школа" />
+          </Key>
+          <Property Name="школа" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="туристы" Relationship="Model.FK__туристы__00000000000000C3" FromRole="школы" ToRole="туристы" />
+          <NavigationProperty Name="экипажи" Relationship="Model.FK__экипажи__0000000000000096" FromRole="школы" ToRole="экипажи" />
+        </EntityType>
+        <EntityType Name="штрафы">
+          <Key>
+            <PropertyRef Name="штраф" />
+          </Key>
+          <Property Name="штраф" Type="Guid" Nullable="false" />
+          <Property Name="результат" Type="Guid" Nullable="false" />
+          <Property Name="секунд" Type="Int32" Nullable="false" />
+          <Property Name="прим" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="этап" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="этапы" Relationship="Model.FK__штрафы__0000000000000235" FromRole="штрафы" ToRole="этапы" />
+          <NavigationProperty Name="результаты" Relationship="Model.FK__штрафы__0000000000000231" FromRole="штрафы" ToRole="результаты" />
+        </EntityType>
+        <EntityType Name="этапы">
+          <Key>
+            <PropertyRef Name="этап" />
+          </Key>
+          <Property Name="этап" Type="Guid" Nullable="false" />
+          <Property Name="дистанция" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="судья" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="дистанции" Relationship="Model.FK__этапы__000000000000006E" FromRole="этапы" ToRole="дистанции" />
+          <NavigationProperty Name="штрафы" Relationship="Model.FK__штрафы__0000000000000235" FromRole="этапы" ToRole="штрафы" />
+        </EntityType>
+        <Association Name="FK__дистанции__000000000000004D">
+          <End Type="Model.виды" Role="виды" Multiplicity="1" />
+          <End Type="Model.дистанции" Role="дистанции" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="виды">
+              <PropertyRef Name="вид" />
+            </Principal>
+            <Dependent Role="дистанции">
+              <PropertyRef Name="вид" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__дистанции__0000000000000051">
+          <End Type="Model.слеты" Role="слеты" Multiplicity="0..1" />
+          <End Type="Model.дистанции" Role="дистанции" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="слеты">
+              <PropertyRef Name="слет" />
+            </Principal>
+            <Dependent Role="дистанции">
+              <PropertyRef Name="слет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__этапы__000000000000006E">
+          <End Type="Model.дистанции" Role="дистанции" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.этапы" Role="этапы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="дистанции">
+              <PropertyRef Name="дистанция" />
+            </Principal>
+            <Dependent Role="этапы">
+              <PropertyRef Name="дистанция" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__туристы__00000000000000BF">
+          <End Type="Model.слеты" Role="слеты" Multiplicity="1" />
+          <End Type="Model.туристы" Role="туристы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="слеты">
+              <PropertyRef Name="слет" />
+            </Principal>
+            <Dependent Role="туристы">
+              <PropertyRef Name="слет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__туристы__00000000000000C3">
+          <End Type="Model.школы" Role="школы" Multiplicity="1" />
+          <End Type="Model.туристы" Role="туристы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="школы">
+              <PropertyRef Name="школа" />
+            </Principal>
+            <Dependent Role="туристы">
+              <PropertyRef Name="школа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__штрафы__0000000000000235">
+          <End Type="Model.этапы" Role="этапы" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.штрафы" Role="штрафы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="этапы">
+              <PropertyRef Name="этап" />
+            </Principal>
+            <Dependent Role="штрафы">
+              <PropertyRef Name="этап" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="экипажи">
+          <Key>
+            <PropertyRef Name="экипаж" />
+          </Key>
+          <Property Name="дистанция" Type="Guid" Nullable="false" />
+          <Property Name="экипаж" Type="Guid" Nullable="false" />
+          <Property Name="судно" Type="Guid" Nullable="false" />
+          <Property Name="прим" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="школа" Type="Guid" Nullable="false" />
+          <Property Name="номер" Type="Int32" Nullable="false" />
+          <Property Name="место" Type="Int32" Nullable="false" />
+          <Property Name="итог" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="дистанции" Relationship="Model.FK__экипажи__0000000000000097" FromRole="экипажи" ToRole="дистанции" />
+          <NavigationProperty Name="школы" Relationship="Model.FK__экипажи__0000000000000096" FromRole="экипажи" ToRole="школы" />
+          <NavigationProperty Name="туристы" Relationship="Model.матросы" FromRole="экипажи" ToRole="туристы" />
+          <NavigationProperty Name="результаты" Relationship="Model.FK__результаты__0000000000000217" FromRole="экипажи" ToRole="результаты" />
+          <NavigationProperty Name="суда" Relationship="Model.FK__экипажи__0000000000000092" FromRole="экипажи" ToRole="суда" />
+        </EntityType>
+        <Association Name="FK__экипажи__0000000000000097">
+          <End Type="Model.дистанции" Role="дистанции" Multiplicity="1" />
+          <End Type="Model.экипажи" Role="экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="дистанции">
+              <PropertyRef Name="дистанция" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="дистанция" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__экипажи__0000000000000096">
+          <End Type="Model.школы" Role="школы" Multiplicity="1" />
+          <End Type="Model.экипажи" Role="экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="школы">
+              <PropertyRef Name="школа" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="школа" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="матросы">
+          <End Type="Model.экипажи" Role="экипажи" Multiplicity="*" />
+          <End Type="Model.туристы" Role="туристы" Multiplicity="*" />
+        </Association>
+        <EntityType Name="результаты">
+          <Key>
+            <PropertyRef Name="результат" />
+          </Key>
+          <Property Name="результат" Type="Guid" Nullable="false" />
+          <Property Name="попытка" Type="Int32" Nullable="false" />
+          <Property Name="экипаж" Type="Guid" Nullable="false" />
+          <Property Name="время_мин" Type="Int32" Nullable="false" />
+          <Property Name="время_сек" Type="Int32" Nullable="false" />
+          <Property Name="секунд" Type="Int32" Nullable="false" />
+          <Property Name="штраф" Type="Int32" Nullable="false" />
+          <Property Name="итог" Type="Int32" Nullable="false" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <Property Name="прим" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="экипажи" Relationship="Model.FK__результаты__0000000000000217" FromRole="результаты" ToRole="экипажи" />
+          <NavigationProperty Name="штрафы" Relationship="Model.FK__штрафы__0000000000000231" FromRole="результаты" ToRole="штрафы" />
+        </EntityType>
+        <Association Name="FK__результаты__0000000000000217">
+          <End Type="Model.экипажи" Role="экипажи" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.результаты" Role="результаты" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="экипажи">
+              <PropertyRef Name="экипаж" />
+            </Principal>
+            <Dependent Role="результаты">
+              <PropertyRef Name="экипаж" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__штрафы__0000000000000231">
+          <End Type="Model.результаты" Role="результаты" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="Model.штрафы" Role="штрафы" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="результаты">
+              <PropertyRef Name="результат" />
+            </Principal>
+            <Dependent Role="штрафы">
+              <PropertyRef Name="результат" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="суда">
+          <Key>
+            <PropertyRef Name="судно" />
+          </Key>
+          <Property Name="судно" Type="Guid" Nullable="false" />
+          <Property Name="наимен" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="порядок" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="экипажи" Relationship="Model.FK__экипажи__0000000000000092" FromRole="суда" ToRole="экипажи" />
+        </EntityType>
+        <Association Name="FK__экипажи__0000000000000092">
+          <End Type="Model.суда" Role="суда" Multiplicity="1" />
+          <End Type="Model.экипажи" Role="экипажи" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="суда">
+              <PropertyRef Name="судно" />
+            </Principal>
+            <Dependent Role="экипажи">
+              <PropertyRef Name="судно" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="виды">
+            <EntityTypeMapping TypeName="Model.виды">
+              <MappingFragment StoreEntitySet="виды">
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="вид" ColumnName="вид" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="дистанции">
+            <EntityTypeMapping TypeName="Model.дистанции">
+              <MappingFragment StoreEntitySet="дистанции">
+                <ScalarProperty Name="слет" ColumnName="слет" />
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="вид" ColumnName="вид" />
+                <ScalarProperty Name="дистанция" ColumnName="дистанция" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="слеты">
+            <EntityTypeMapping TypeName="Model.слеты">
+              <MappingFragment StoreEntitySet="слеты">
+                <ScalarProperty Name="дата_по" ColumnName="дата_по" />
+                <ScalarProperty Name="дата_с" ColumnName="дата_с" />
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="слет" ColumnName="слет" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="туристы">
+            <EntityTypeMapping TypeName="Model.туристы">
+              <MappingFragment StoreEntitySet="туристы">
+                <ScalarProperty Name="прим" ColumnName="прим" />
+                <ScalarProperty Name="младший" ColumnName="младший" />
+                <ScalarProperty Name="муж" ColumnName="муж" />
+                <ScalarProperty Name="имя" ColumnName="имя" />
+                <ScalarProperty Name="фамилия" ColumnName="фамилия" />
+                <ScalarProperty Name="турист" ColumnName="турист" />
+                <ScalarProperty Name="школа" ColumnName="школа" />
+                <ScalarProperty Name="слет" ColumnName="слет" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="школы">
+            <EntityTypeMapping TypeName="Model.школы">
+              <MappingFragment StoreEntitySet="школы">
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="школа" ColumnName="школа" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="штрафы">
+            <EntityTypeMapping TypeName="Model.штрафы">
+              <MappingFragment StoreEntitySet="штрафы">
+                <ScalarProperty Name="этап" ColumnName="этап" />
+                <ScalarProperty Name="прим" ColumnName="прим" />
+                <ScalarProperty Name="секунд" ColumnName="секунд" />
+                <ScalarProperty Name="результат" ColumnName="результат" />
+                <ScalarProperty Name="штраф" ColumnName="штраф" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="этапы">
+            <EntityTypeMapping TypeName="Model.этапы">
+              <MappingFragment StoreEntitySet="этапы">
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="судья" ColumnName="судья" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="дистанция" ColumnName="дистанция" />
+                <ScalarProperty Name="этап" ColumnName="этап" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="экипажи">
+            <EntityTypeMapping TypeName="Model.экипажи">
+              <MappingFragment StoreEntitySet="экипажи">
+                <ScalarProperty Name="итог" ColumnName="итог" />
+                <ScalarProperty Name="место" ColumnName="место" />
+                <ScalarProperty Name="номер" ColumnName="номер" />
+                <ScalarProperty Name="школа" ColumnName="школа" />
+                <ScalarProperty Name="прим" ColumnName="прим" />
+                <ScalarProperty Name="судно" ColumnName="судно" />
+                <ScalarProperty Name="экипаж" ColumnName="экипаж" />
+                <ScalarProperty Name="дистанция" ColumnName="дистанция" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="матросы" TypeName="Model.матросы" StoreEntitySet="матросы">
+            <EndProperty Name="туристы">
+              <ScalarProperty Name="турист" ColumnName="турист" />
+            </EndProperty>
+            <EndProperty Name="экипажи">
+              <ScalarProperty Name="экипаж" ColumnName="экипаж" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="результаты">
+            <EntityTypeMapping TypeName="Model.результаты">
+              <MappingFragment StoreEntitySet="результаты">
+                <ScalarProperty Name="прим" ColumnName="прим" />
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="итог" ColumnName="итог" />
+                <ScalarProperty Name="штраф" ColumnName="штраф" />
+                <ScalarProperty Name="секунд" ColumnName="секунд" />
+                <ScalarProperty Name="время_сек" ColumnName="время_сек" />
+                <ScalarProperty Name="время_мин" ColumnName="время_мин" />
+                <ScalarProperty Name="экипаж" ColumnName="экипаж" />
+                <ScalarProperty Name="попытка" ColumnName="попытка" />
+                <ScalarProperty Name="результат" ColumnName="результат" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="суда">
+            <EntityTypeMapping TypeName="Model.суда">
+              <MappingFragment StoreEntitySet="суда">
+                <ScalarProperty Name="порядок" ColumnName="порядок" />
+                <ScalarProperty Name="наимен" ColumnName="наимен" />
+                <ScalarProperty Name="судно" ColumnName="судно" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

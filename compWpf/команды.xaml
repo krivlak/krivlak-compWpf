@@ -1,0 +1,17 @@
+﻿<Window x:Class="compWpf.команды"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:compWpf"
+        mc:Ignorable="d"
+        Title="команды" Height="450" Width="800">
+    <Grid>
+        <StackPanel Height="40" Background="LightBlue" VerticalAlignment="Top" Orientation="Horizontal">
+            <Button Content="Копировать" Command="Copy" CommandTarget="{Binding ElementName=texBox1}"  Width="100" HorizontalAlignment="Left"/>
+            <!--<TextBlock Name="textBloc1" Width="200" Background="LightGreen" >Коечто о нем  </TextBlock>-->
+            <TextBox Name="texBox1" Width="200"     Text="И все это о нем" />
+        </StackPanel>
+        
+    </Grid>
+</Window>
