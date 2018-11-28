@@ -262,10 +262,12 @@ namespace compWpf
 
         private void ВНиз_Copy_Click(object sender, RoutedEventArgs e)
         {
+            // изменение порядка с помощью LinkedList
+
             if (!viewSource1.View.IsEmpty)
             {
                 суда oldRow = viewSource1.View.CurrentItem as суда;
-               .
+               
 
                 LinkedList<суда> linkList = new LinkedList<суда>();
                 foreach (суда tRow in bindList
@@ -275,7 +277,7 @@ namespace compWpf
                     linkList.AddLast(tRow);
                 }
                 var верхRow= linkList.Find(oldRow);
-                //if(верхRow.Next != null)
+                
                 if (верхRow != linkList.Last)
                 {
                     var низRow = верхRow.Next;
@@ -288,29 +290,10 @@ namespace compWpf
                     dataGrid1.Items.SortDescriptions.Add(new SortDescription("порядок", ListSortDirection.Ascending));
                     dataGrid1.Items.Refresh();
 
-                    //   viewSource1.View.MoveCurrentToNext();
+                   
                 }
 
-                ////  int oldPor = oldRow.порядок;
-                //if (viewSource1.View.CurrentPosition < de.суда.Local.Count - 1)
-                //{
-                //    viewSource1.View.MoveCurrentToNext();
-                //    суда lastRow = viewSource1.View.CurrentItem as суда;
-                    
-                //    //int lastPor = lastRow.порядок;
-                //    //oldRow.порядок = lastPor;
-                //    //lastRow.порядок = oldPor;
-                //    (oldRow.порядок, lastRow.порядок) = (lastRow.порядок, oldRow.порядок);
-                //    label1.Visibility = Visibility;
-                //    dataGrid1.Items.Refresh();
-
-                //    dataGrid1.Items.SortDescriptions.Clear();
-
-                //    dataGrid1.Items.SortDescriptions.Add(new SortDescription("порядок", ListSortDirection.Ascending));
-                //    viewSource1.View.MoveCurrentToNext();
-
-                //    //  viewSource1.View.Refresh();
-                //}
+                
             }
             dataGrid1.Focus();
         }
