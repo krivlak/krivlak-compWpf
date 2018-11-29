@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.ComponentModel.DataAnnotations;
 namespace compWpf
 {
     public partial class виды
@@ -108,6 +108,9 @@ namespace compWpf
 
     public partial class результаты
     {
+        [Range(0, 59, ErrorMessage ="Введите секунды от 0 до 59")]
+        public int провСек => время_сек;
+      
         public int номер
         {
             get

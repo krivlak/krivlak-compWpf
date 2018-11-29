@@ -31,7 +31,9 @@
                 <MenuItem Header="Результаты">
                     <MenuItem  Name="Заявки" Header="Заявки"  Click="Заявки_Click"/>
                     <MenuItem  Name="штрафыWin" Header="Результаты"  Click="штрафыWin_Click"/>
-                    <MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />
+                    <MenuItem  Name="судно1" Header="Результаты 1 судно"  Click="Судно1_Click"/>
+
+                   <!--<MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />-->
                 <!--<MenuItem Name="проба" Header=" проба" Click="проба_Click_1" />-->
                 <!--<MenuItem Name="все" Header="Все экипажи" Click="все_Click_1"/>
                     <MenuItem Name="попытки" Header="Результаты" Click="попытки_Click" />
@@ -42,12 +44,15 @@
                 <!--<MenuItem  Name="Результаты" Header="Результаты"  Click="Результаты_Click"/>
                     <MenuItem  Name="штрафы" Header="Штрафы"  Click="штрафы_Click"/>-->
                 </MenuItem>
-        
-            <!--<MenuItem Header="Результаты_Win">
-                <MenuItem  Name="заявкиWin" Header="Заявки"  Click="заявкиWin_Click"/>
-                <MenuItem  Name="РезультатыWin" Header="Результаты"  Click="РезультатыWin_Click"/>
-                <MenuItem  Name="штрафыWin" Header="Штрафы"  Click="штрафыWin_Click"/>
-            </MenuItem>-->
+                
+                 
+                      
+            <MenuItem Header="Анализ">
+                <MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />
+            //    <MenuItem  Name="заявкиWin" Header="Заявки"  Click="заявкиWin_Click"/>
+                <!--<MenuItem  Name="РезультатыWin" Header="Результаты"  Click="РезультатыWin_Click"/>
+                <MenuItem  Name="штрафыWin" Header="Штрафы"  Click="штрафыWin_Click"/>-->
+            </MenuItem>
                 
             <!--<MenuItem Header="Анализ">
                     <MenuItem  Name="Все" Header="Вск результаты"  Click="Все_Click"/>

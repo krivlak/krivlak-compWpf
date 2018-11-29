@@ -97,8 +97,14 @@ namespace compWpf
                 bindingSource1.DataSource = binList;
                 bindingSource1.Sort = " номер, попытка";
                 обновитьШтрафы();
-                задать_ширину();
-                задать2ширину();
+                клСетка.задать_ширину(dataGridView1);
+                int столбцов = dataGridView2.Columns.Count;
+                if (столбцов > 10)
+                {
+                      клСетка.задать_ширину(dataGridView2);
+                }
+                    //задать_ширину();
+                  //  задать2ширину();
             }
             catch (Exception ex)
             {
@@ -121,20 +127,70 @@ namespace compWpf
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
         //    dataGridView1.CellMouseClick += DataGridView1_CellMouseClick1;
-         //   dataGridView1.CellValidating += DataGridView1_CellValidating;
+           dataGridView1.CellValidating += DataGridView1_CellValidating;
+            dataGridView2.EditingControlShowing += DataGridView2_EditingControlShowing;
             
+        }
+
+        private void DataGridView2_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress -= new KeyPressEventHandler(Control_KeyPress);
+            string CellName = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
+
+            //if (CellName == "минColumn" || CellName == "секColumn" || CellName == "штрафColumn")
+            //{
+                e.Control.KeyPress += new KeyPressEventHandler(Control_KeyPress);
+            //}
+        }
+
+        private void DataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            if (e.FormattedValue.ToString() == "")
+            {
+                DataGridViewTextBoxColumn[] aCol = new DataGridViewTextBoxColumn[3] { секColumn, минColumn, штрафColumn };
+
+
+                if (aCol.Contains(dataGridView1.Columns[e.ColumnIndex]))
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+                }
+                DataGridViewTextBoxColumn[] aCol2 = new DataGridViewTextBoxColumn[1] { примColumn };
+
+
+                if (aCol2.Contains(dataGridView1.Columns[e.ColumnIndex]))
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "";
+                }
+            }
+
+
+            if (dataGridView1.Columns[e.ColumnIndex] == секColumn)
+            {
+                int секунд = 0;
+
+
+                if (int.TryParse(e.FormattedValue.ToString(), out секунд))
+                {
+                    if (секунд > 59)
+                    {
+                        e.Cancel = true;
+                        MessageBox.Show("Введите секунды от 0 до 59");
+                    }
+                }
+
+            }
         }
 
         //private void DataGridView1_CellMouseClick1(object sender, DataGridViewCellMouseEventArgs e)
         //{
-          
+
         //}
 
         //private void DataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         //{
         //    if (dataGridView1.Columns[e.ColumnIndex] == забегColumn)
         //    {
-                
+
         //        bool xy = (bool)e.FormattedValue;
         //        if (xy)
         //        {
@@ -406,9 +462,10 @@ namespace compWpf
 
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
+            MessageBox.Show("Ошибка ввода  ");
             //if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == System.DBNull.Value)
             //{
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+            //     dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
             //}
             //throw new NotImplementedException();
         }

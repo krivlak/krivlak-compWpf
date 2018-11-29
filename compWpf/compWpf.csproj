@@ -167,6 +167,12 @@
     <Compile Include="окно1результатов.designer.cs">
       <DependentUpon>окно1результатов.cs</DependentUpon>
     </Compile>
+    <Compile Include="окно1судно.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="окно1судно.Designer.cs">
+      <DependentUpon>окно1судно.cs</DependentUpon>
+    </Compile>
     <Compile Include="окно2результатов.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -421,6 +427,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="окно1результатов.resx">
       <DependentUpon>окно1результатов.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="окно1судно.resx">
+      <DependentUpon>окно1судно.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="окно2результатов.resx">
       <DependentUpon>окно2результатов.cs</DependentUpon>

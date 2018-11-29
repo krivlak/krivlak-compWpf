@@ -10,6 +10,50 @@ using System.Windows.Controls;
 
 namespace compWpf
 {
+
+
+    class клСетка
+    {
+        public static void задать_ширину(DataGridView dataGridView1)
+        {
+            int j = 0;
+
+            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            {
+                if (col.Visible)
+                {
+                    j++;
+                }
+            }
+            int столбцов = j;
+
+            int[] aW = new int[столбцов];
+            int i = 0;
+            foreach (DataGridViewColumn tCol in dataGridView1.Columns)
+            {
+                if (tCol.Visible)
+                {
+                    aW[i] = tCol.Width;
+                    i++;
+                }
+            }
+            double сумма = aW.Sum();
+            double ширина = Screen.PrimaryScreen.WorkingArea.Width - 60;
+            double поправка = ширина / сумма;
+            i = 0;
+            foreach (DataGridViewColumn tCol in dataGridView1.Columns)
+            {
+                if (tCol.Visible)
+                {
+                    double ss = aW[i] * поправка;
+                    tCol.Width = (int)ss;
+                    i++;
+                }
+            }
+            dataGridView1.Refresh();
+        }
+    }
+
     //class клБаза
     //{
     //    public static compWpf.Entities de = new Entities();
