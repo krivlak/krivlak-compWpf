@@ -263,6 +263,12 @@
     <Compile Include="штрафы_этапы.Designer.cs">
       <DependentUpon>штрафы_этапы.cs</DependentUpon>
     </Compile>
+    <Compile Include="штрафыНаЭтапах.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="штрафыНаЭтапах.Designer.cs">
+      <DependentUpon>штрафыНаЭтапах.cs</DependentUpon>
+    </Compile>
     <Compile Include="экипажи.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -445,6 +451,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="штрафы_этапы.resx">
       <DependentUpon>штрафы_этапы.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="штрафыНаЭтапах.resx">
+      <DependentUpon>штрафыНаЭтапах.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

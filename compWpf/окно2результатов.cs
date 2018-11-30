@@ -1629,5 +1629,13 @@ namespace compWpf
             пересчет();
             dataGridView1.Refresh();
         }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            штрафыНаЭтапах протоколШтрафов = new штрафыНаЭтапах();
+            протоколШтрафов.ShowDialog();
+            Cursor = Cursors.Default;
+        }
     }
 }
