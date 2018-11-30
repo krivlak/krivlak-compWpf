@@ -90,7 +90,6 @@
             this.порядокColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button16 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
@@ -180,7 +179,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button16);
             this.panel1.Controls.Add(this.button15);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button14);
@@ -579,16 +577,6 @@
             // 
             this.bindingSource1.DataMember = "vid_detali";
             // 
-            // button16
-            // 
-            this.button16.Location = new System.Drawing.Point(1203, 39);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(177, 27);
-            this.button16.TabIndex = 158;
-            this.button16.Text = "штрафы на этапах";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
-            // 
             // окно2результатов
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -656,6 +644,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn местоColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn порядокColumn;
         private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
     }
 }
