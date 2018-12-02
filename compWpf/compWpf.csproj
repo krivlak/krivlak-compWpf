@@ -179,6 +179,18 @@
     <Compile Include="окно2результатов.designer.cs">
       <DependentUpon>окно2результатов.cs</DependentUpon>
     </Compile>
+    <Compile Include="по_одному.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="по_одному.Designer.cs">
+      <DependentUpon>по_одному.cs</DependentUpon>
+    </Compile>
+    <Compile Include="подробности1попытка.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="подробности1попытка.Designer.cs">
+      <DependentUpon>подробности1попытка.cs</DependentUpon>
+    </Compile>
     <Compile Include="проба.xaml.cs">
       <DependentUpon>проба.xaml</DependentUpon>
     </Compile>
@@ -193,6 +205,12 @@
     </Compile>
     <Compile Include="результаты1дистанция.xaml.cs">
       <DependentUpon>результаты1дистанция.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="с_интервалом.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="с_интервалом.Designer.cs">
+      <DependentUpon>с_интервалом.cs</DependentUpon>
     </Compile>
     <Compile Include="секундомер.cs">
       <SubType>Form</SubType>
@@ -439,6 +457,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="окно2результатов.resx">
       <DependentUpon>окно2результатов.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="по_одному.resx">
+      <DependentUpon>по_одному.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="подробности1попытка.resx">
+      <DependentUpon>подробности1попытка.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="с_интервалом.resx">
+      <DependentUpon>с_интервалом.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="секундомер.resx">
       <DependentUpon>секундомер.cs</DependentUpon>

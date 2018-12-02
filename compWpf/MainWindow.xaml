@@ -32,7 +32,8 @@
                     <MenuItem  Name="Заявки" Header="Заявки"  Click="Заявки_Click"/>
                     <MenuItem  Name="штрафыWin" Header="Результаты"  Click="штрафыWin_Click"/>
                     <MenuItem  Name="судно1" Header="Результаты 1 судно"  Click="Судно1_Click"/>
-                <!--<MenuItem  Name="штрафы3" Header="Штрафы на дистанции"  Click="Штрафы3_Click"/>-->
+                    <MenuItem  Name="интервал3" Header="Старт с интервалом"  Click="Интервал3_Click"/>
+                <MenuItem  Name="по1" Header="Старт по 1 судну"  Click="По1_Click"/>
 
                 <!--<MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />-->
                 <!--<MenuItem Name="проба" Header=" проба" Click="проба_Click_1" />-->

@@ -81,12 +81,28 @@ namespace compWpf
                 bindingSource1.DataSource = dt;
                 initGrid();
                 клСетка.задать_ширину(dataGridView1);
+                dataGridView1.CellPainting += DataGridView1_CellPainting;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Сбой загрузки {ex.Message}");
             }
 
+        }
+
+        private void DataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex == -1 && e.ColumnIndex < dataGridView1.Columns.Count)
+            {
+                e.PaintBackground(e.CellBounds, true);
+                e.Graphics.TranslateTransform(e.CellBounds.Left, e.CellBounds.Bottom);
+                e.Graphics.RotateTransform(270);
+                //   e.Graphics.DrawString(e.FormattedValue?.ToString(), e.CellStyle.Font, Brushes.Black, 5, 5);
+                e.Graphics.DrawString(e.FormattedValue?.ToString(), label1.Font, Brushes.Black, 5, 5);
+                e.Graphics.ResetTransform();
+                e.Handled = true;
+                //dataGridView1.ColumnHeadersHeight = 100;
+            }
         }
         void создать_таблицу()
         {
@@ -275,82 +291,90 @@ namespace compWpf
         private void button1_Click(object sender, EventArgs e)
         {
             Cursor = Cursors.WaitCursor;
-            Word.Application oWord = new Word.Application();
-
-            string curDir = System.IO.Directory.GetCurrentDirectory();
-
-            object шаблон = curDir + @"\штрафыНаЭтапах.dot";
-            if (!System.IO.File.Exists(шаблон.ToString()))
+            try
             {
-                MessageBox.Show("Нет файла " + шаблон.ToString());
-                return;
+                Word.Application oWord = new Word.Application();
+
+                string curDir = System.IO.Directory.GetCurrentDirectory();
+
+                object шаблон = curDir + @"\штрафыНаЭтапах.dot";
+                if (!System.IO.File.Exists(шаблон.ToString()))
+                {
+                    MessageBox.Show("Нет файла " + шаблон.ToString());
+                    return;
+                }
+
+
+
+                //string наименФилиала = de.филиалы
+                //    .OrderBy(n => n.порядок)
+                //    .First().наимен;
+
+
+                Word.Document o = oWord.Documents.Add(Template: шаблон);
+                oWord.Application.Visible = true;
+                //o.Bookmarks["услуга"].Range.Text = клУслуга.наимен;
+                //o.Bookmarks["улица"].Range.Text = клУлица.наимен;
+                //o.Bookmarks["филиал"].Range.Text = наименФилиала;
+                //o.Bookmarks["дата"].Range.Text = DateTime.Today.ToShortDateString();
+
+                o.Tables[1].Rows[1].Cells[2].Range.Text = клСлет.наимен;
+                o.Tables[1].Rows[2].Cells[2].Range.Text = клДистанция.наимен;
+                o.Tables[1].Rows[3].Cells[2].Range.Text = клСудно.наимен;
+
+
+                o.Tables[2].Rows[1].Cells[2].Range.Text = dt.Columns[1].Caption;
+
+                int i = 0;
+                foreach (DataColumn nCol in dt.Columns)
+                {
+                    i++;
+                    if (nCol.Ordinal > 3)
+                    {
+                        o.Tables[2].Columns.Add();
+                    }
+                    if (nCol.Ordinal > 2)
+                    {
+                        o.Tables[2].Rows[1].Cells[i].Range.Text = nCol.Caption;
+                    }
+                }
+
+                int j = 1;
+                //  string dd = "";
+                foreach (DataRow uRow in dt.Rows)
+                {
+                    j++;
+                    o.Tables[2].Rows[j].Cells[1].Range.Text = uRow.Field<int>("номерColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[2].Range.Text = uRow.Field<string>("клубColumn").Trim();
+                    o.Tables[2].Rows[j].Cells[3].Range.Text = uRow.Field<string>("составColumn").Trim();
+                    int r = 3;
+                    int p = 0;
+                    foreach (этапы eRow in de.этапы.Local)
+                    {
+                        r++;
+                        p++;
+                        string поле = $"col{p}";
+                        o.Tables[2].Rows[j].Cells[r].Range.Text = uRow.Field<int>(поле).ToString("0;#;#");
+                    }
+
+                    o.Tables[2].Rows[j].Cells[r + 1].Range.Text = uRow.Field<int>("минутColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[r + 2].Range.Text = uRow.Field<int>("секундColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[r + 3].Range.Text = uRow.Field<int>("в_секColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[r + 4].Range.Text = uRow.Field<int>("штрафColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[r + 5].Range.Text = uRow.Field<int>("итогColumn").ToString("0;#;#").Trim();
+                    o.Tables[2].Rows[j].Cells[r + 6].Range.Text = uRow.Field<int>("местоColumn").ToString("0;#;#").Trim();
+                    if (r > 1)
+                    {
+                        o.Tables[2].Rows.Add();
+                    }
+                }
+                oWord.Application.Visible = true;
             }
-
-
-
-            //string наименФилиала = de.филиалы
-            //    .OrderBy(n => n.порядок)
-            //    .First().наимен;
-
-
-            Word.Document o = oWord.Documents.Add(Template: шаблон);
-            oWord.Application.Visible = true;
-            //o.Bookmarks["услуга"].Range.Text = клУслуга.наимен;
-            //o.Bookmarks["улица"].Range.Text = клУлица.наимен;
-            //o.Bookmarks["филиал"].Range.Text = наименФилиала;
-            //o.Bookmarks["дата"].Range.Text = DateTime.Today.ToShortDateString();
-
-            o.Tables[1].Rows[1].Cells[2].Range.Text = клСлет.наимен;
-            o.Tables[1].Rows[2].Cells[2].Range.Text = клДистанция.наимен;
-            o.Tables[1].Rows[3].Cells[2].Range.Text = клСудно.наимен;
-
-
-            o.Tables[2].Rows[1].Cells[2].Range.Text = dt.Columns[1].Caption;
-
-            int i = 0;
-            foreach (DataColumn nCol in dt.Columns)
+            catch(Exception ex)
             {
-                i++;
-                if (nCol.Ordinal > 3)
-                {
-                    o.Tables[2].Columns.Add();
-                }
-                if (nCol.Ordinal > 2)
-                {
-                    o.Tables[2].Rows[1].Cells[i].Range.Text = nCol.Caption;
-                }
+                MessageBox.Show($"Сбой  {ex.Message}");
             }
-
-            int j = 1;
-            //  string dd = "";
-            foreach (DataRow uRow in dt.Rows)
-            {
-                j++;
-                o.Tables[2].Rows[j].Cells[1].Range.Text = uRow.Field<int>("номерColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[2].Range.Text = uRow.Field<string>("клубColumn").Trim();
-                o.Tables[2].Rows[j].Cells[3].Range.Text = uRow.Field<string>("составColumn").Trim();
-                int r = 3;
-                int p = 0;
-                foreach (этапы eRow in de.этапы.Local)
-                {
-                    r++;
-                    p++;
-                    string поле = $"col{p}";
-                    o.Tables[2].Rows[j].Cells[r].Range.Text = uRow.Field<int>(поле).ToString("0;#;#");
-                }
-
-                o.Tables[2].Rows[j].Cells[r + 1].Range.Text = uRow.Field<int>("минутColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[r + 2].Range.Text = uRow.Field<int>("секундColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[r + 3].Range.Text = uRow.Field<int>("в_секColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[r + 4].Range.Text = uRow.Field<int>("штрафColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[r + 5].Range.Text = uRow.Field<int>("итогColumn").ToString("0;#;#").Trim();
-                o.Tables[2].Rows[j].Cells[r + 6].Range.Text = uRow.Field<int>("местоColumn").ToString("0;#;#").Trim();
-                if (r > 1)
-                {
-                    o.Tables[2].Rows.Add();
-                }
-            }
-            oWord.Application.Visible = true;
+            Cursor = Cursors.Default;
         }
 
         private void button3_Click(object sender, EventArgs e)

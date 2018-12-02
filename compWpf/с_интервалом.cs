@@ -10,17 +10,20 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using Word = Microsoft.Office.Interop.Word;
 using System.ComponentModel.DataAnnotations;
+using System.Threading;
+
 namespace compWpf
 {
-    public partial class окно1судно: Form
+    public partial class с_интервалом : Form
     {
-        public окно1судно()
+        public с_интервалом()
         {
             InitializeComponent();
         }
         Entities de = new Entities();
         BindingList<результаты> binList;
-        private void окно1судно_Load(object sender, EventArgs e)
+        int интервал  = 10;
+        private void с_интервалом_Load(object sender, EventArgs e)
         {
             this.Text = $"Результаты на   {клДистанция.deRow.наимен}  {клСлет.наимен} {клСудно.наимен}";
             label2.Text = this.Text;
@@ -28,15 +31,15 @@ namespace compWpf
             {
 
                 de.экипажи.Where(n => n.дистанция == клДистанция.дистанция)
-                    .Where(n=>n.судно==клСудно.судно)
+                    .Where(n => n.судно == клСудно.судно)
                     .OrderBy(n => n.номер).Load();
 
                 de.результаты.Where(n => n.экипажи.дистанция == клДистанция.дистанция)
                      .Where(n => n.экипажи.судно == клСудно.судно)
                     .OrderBy(n => n.порядок).ThenBy(n => n.экипажи.номер).ThenBy(n => n.попытка).Load();
 
-            //    de.этапы.Where(n => n.дистанция == клДистанция.дистанция).OrderBy(n => n.порядок).Load();
-            //    de.штрафы.Where(n => n.результаты.экипажи.дистанция == клДистанция.дистанция).Load();
+                //    de.этапы.Where(n => n.дистанция == клДистанция.дистанция).OrderBy(n => n.порядок).Load();
+                //    de.штрафы.Where(n => n.результаты.экипажи.дистанция == клДистанция.дистанция).Load();
                 //   DicШтрафы = de.штрафы.Local.ToDictionary(n => ( n.результат, n.этап));
 
                 de.суда.OrderBy(n => n.порядок).Load();
@@ -91,9 +94,11 @@ namespace compWpf
                 bindingSource1.DataSource = binList;
                 bindingSource1.Sort = " номер, попытка";
                 клСетка.задать_ширину(dataGridView1);
-           //     обновитьШтрафы();
-           // задать_ширину();
-           //   задать2ширину();
+                //         numericUpDown1.DataBindings.Add("Value",this, "интервал");
+                numericUpDown1.Value = интервал;
+                //     обновитьШтрафы();
+                // задать_ширину();
+                //   задать2ширину();
             }
             catch (Exception ex)
             {
@@ -101,24 +106,110 @@ namespace compWpf
             }
 
             timer2.Start();
+            timer3.Start();
             timer2.Tick += Timer2_Tick;
             FormClosing += Список_видов_FormClosing;
             bindingSource1.ListChanged += BindingSource1_ListChanged;
             //this.Text = deДистанция.наимен;
             //label2.Text = this.Text;
-         //   bindingSource1.PositionChanged += BindingSource1_PositionChanged;
-      //      dataGridView2.CellValueChanged += DataGridView2_CellValueChanged;
+            //   bindingSource1.PositionChanged += BindingSource1_PositionChanged;
+            //      dataGridView2.CellValueChanged += DataGridView2_CellValueChanged;
             //            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
             dataGridView1.DataError += DataGridView1_DataError;
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             // dataGridView1.CellMouseClick += DataGridView1_CellMouseClick;
             dataGridView1.EditingControlShowing += dataGridView1_EditingControlShowing;
             dataGridView1.CellContentClick += DataGridView1_CellContentClick;
-        //    dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+            //    dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
             dataGridView1.CellValidated += DataGridView1_CellValidated;
             dataGridView1.CellValidating += DataGridView1_CellValidating;
+            numericUpDown1.ValueChanged += NumericUpDown1_ValueChanged;
+            timer1.Tick += Timer1_Tick;
+            checkBox1.CheckedChanged += CheckBox1_CheckedChanged;
+            timer3.Tick += Timer3_Tick;
 
         }
+
+        private void Timer3_Tick(object sender, EventArgs e)
+        {
+            panel2.Visible = false;
+        }
+
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            timer1.Interval = (int)(numericUpDown1.Value*1000);
+
+            if(checkBox1.Checked)
+            {
+                checkBox1.Text = "Стоп";
+                запуск_очередного();
+                timer1.Start();
+            //    timer3.Start();
+            }
+            else
+            {
+                checkBox1.Text = "Старт";
+                timer1.Stop();
+             //   timer3.Stop();
+            }
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            // запускает нового участника (результат)
+
+            запуск_очередного();
+
+
+        }
+        void запуск_очередного()
+        {
+            if (binList.Any(n => n.забег))
+            {
+
+                результаты rRow = binList.Where(n => n.забег).OrderBy(n => n.порядок).First();
+                    rRow.старт = DateTime.Now;
+                    rRow.финиш = rRow.старт;
+                    rRow.плывут = true;
+                    rRow.забег = false;
+
+                panel2.Visible = true;
+                WMPLib.WindowsMediaPlayer wmp = new WMPLib.WindowsMediaPlayer();
+                wmp.URL = "СтартМ.wav";
+                wmp.controls.play();
+
+                if (! binList.Any(n => n.забег))
+                {
+                    timer1.Stop();
+                    checkBox1.Checked = false;
+                    MessageBox.Show("Старт окончен...");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Отметьте участников..");
+            }
+        }
+
+        private void NumericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            интервал =(int) numericUpDown1.Value;
+        }
+
+        //class temp2
+        //{
+        //    public static int интервал { get; set; } = 10;
+        //    public static DateTime время
+        //    {
+        //        get
+        //        {
+        //            return DateTime.Now;
+        //        }
+        //    }
+        //    public DateTime старт { get; set; }
+        //    public DateTime финиш { get; set; }
+
+        //}
 
         private void DataGridView1_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
@@ -129,7 +220,7 @@ namespace compWpf
 
                 if (aCol.Contains(dataGridView1.Columns[e.ColumnIndex]))
                 {
-                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
+                    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
                 }
             }
 
@@ -147,7 +238,7 @@ namespace compWpf
                         MessageBox.Show("Введите секунды от 0 до 59");
                     }
                 }
-                
+
             }
         }
 
@@ -200,7 +291,7 @@ namespace compWpf
         {
             if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
-                
+
                 if (dataGridView1.Columns[e.ColumnIndex] == стартColumn)
                 {
                     dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
@@ -216,6 +307,9 @@ namespace compWpf
                         пересчет();
                         dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LawnGreen;
                         dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Blue;
+                        //dataGridView1.Rows[e.RowIndex].Height = 80;
+                        //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+                        dataGridView1.Refresh();
                     }
                     else
                     {
@@ -232,8 +326,12 @@ namespace compWpf
                             rRow.секунд = 0;
                             rRow.время_мин = 0;
                             rRow.время_сек = 0;
+                            panel2.Visible = true;
                             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.LightCyan;
                             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.ForeColor = Color.Red;
+                            //dataGridView1.Rows[e.RowIndex].Height = 300;
+                            //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightCoral;
+           
                             dataGridView1.Refresh();
                             rRow.забег = false;
                         }
@@ -243,7 +341,7 @@ namespace compWpf
                         }
                     }
 
-                  
+
                 }
                 if (dataGridView1.Columns[e.ColumnIndex] == забегColumn)
                 {
@@ -277,15 +375,17 @@ namespace compWpf
                                         de.штрафы.Local.Remove(delRow);
 
                                     }
-                                  //  обновитьШтрафы();
+                                    //  обновитьШтрафы();
                                     пересчет();
+                                    //dataGridView1.Rows[e.RowIndex].Height = 200;
+                                    //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
                                 }
                                 else
                                 {
                                     rRow.забег = false;
                                 }
                                 dataGridView1.Refresh();
-                  
+
                             }
                             else
                             {
@@ -293,6 +393,9 @@ namespace compWpf
                                 wmp.URL = "ВниманиеЖ.wav";
                                 wmp.controls.play();
                                 rRow.забег = true;
+                                //dataGridView1.Rows[e.RowIndex].Height = 200;
+                                //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.LightGreen;
+                                dataGridView1.Refresh();
                             }
                         }
                         else
@@ -322,7 +425,7 @@ namespace compWpf
 
         void Control_KeyPress(object sender, KeyPressEventArgs pressE)
         {
-          
+
             клKey.int_KeyPress(sender, pressE);
         }
 
@@ -371,18 +474,18 @@ namespace compWpf
             //   dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = 0;
             //}
             //throw new NotImplementedException();
-            MessageBox.Show( "Ошибка ввода  ");
+            MessageBox.Show("Ошибка ввода  ");
         }
 
-       
-
- 
-
-     
 
 
 
-    
+
+
+
+
+
+
 
         private void Список_видов_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -392,7 +495,7 @@ namespace compWpf
                 {
 
                     de.SaveChanges();
-  
+
                 }
                 catch (Exception ex)
                 {
@@ -406,7 +509,7 @@ namespace compWpf
             label1.Visible = true;
             if (bindingSource1.Count > 0)
             {
-                  пересчет();
+                пересчет();
             }
         }
 
@@ -470,9 +573,9 @@ namespace compWpf
             label1.Visible = true;
         }
 
-      
 
-       
+
+
 
 
         public void init_слет()
@@ -493,7 +596,7 @@ namespace compWpf
                 maxNum = de.экипажи.Local.Max(n => n.номер);
 
             }
-          
+
             return maxNum;
 
         }
@@ -506,7 +609,7 @@ namespace compWpf
                 maxPor = de.результаты.Local.Max(n => n.порядок);
             }
 
-     
+
             return maxPor;
         }
 
@@ -515,69 +618,87 @@ namespace compWpf
             Close();
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (binList.Any(n => n.забег))
+            {
+                panel2.Visible = true;
+                foreach (результаты rRow in binList.Where(n => n.забег))
+                {
+                    rRow.старт = DateTime.Now;
+                    rRow.финиш = rRow.старт;
+                    rRow.плывут = true;
+
+                    rRow.забег = false;
+                }
+                WMPLib.WindowsMediaPlayer wmp = new WMPLib.WindowsMediaPlayer();
+                wmp.URL = "СтартМ.wav";
+                wmp.controls.play();
+            }
+            else
+            {
+                MessageBox.Show("Отметьте экипажи...");
+                // как не испортить результаты? Если время больше нуля вторую попытку..
+            }
+
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            //список_судов выборДистанции = new список_судов();
-            //выборДистанции.Выход.Content = "Отмена";
-            //выборДистанции.Title = " Выберите судно ";
-            //выборДистанции.наимен_слета.Text = выборДистанции.Title;
-            //выборДистанции.ShowDialog();
-            //if (выборДистанции.DialogResult == true)
-            //{
-                список_школ выборШколы = new список_школ();
-                выборШколы.Выход.Content = "Отмена";
-                выборШколы.Title = " Выберите школу";
-                выборШколы.наимен_слета.Text = выборШколы.Title;
-                выборШколы.ShowDialog();
-                if (выборШколы.DialogResult == true)
+            список_школ выборШколы = new список_школ();
+            выборШколы.Выход.Content = "Отмена";
+            выборШколы.Title = " Выберите школу";
+            выборШколы.наимен_слета.Text = выборШколы.Title;
+            выборШколы.ShowDialog();
+            if (выборШколы.DialogResult == true)
+            {
+                школы выбр_школа = de.школы.Single(n => n.школа == клШкола.школа);
+                суда выбр_судно = de.суда.Single(n => n.судно == клСудно.судно);
+
+                int maxNum = GetMaxNum();
+                int maxPor = GetMaxPor();
+
+
+                экипажи newЭкипаж = new экипажи()
                 {
-                    школы выбр_школа = de.школы.Single(n => n.школа == клШкола.школа);
-                    суда выбр_судно = de.суда.Single(n => n.судно == клСудно.судно);
+                    экипаж = Guid.NewGuid(),
+                    прим = "",
+                    номер = maxNum + 1,
+                    дистанция = клДистанция.дистанция,
+                    место = 0,
+                    итог = 0,
+                    школа = клШкола.школа,
+                    школы = выбр_школа,
+                    судно = клСудно.судно,
+                    суда = выбр_судно
+                };
+                de.экипажи.Local.Add(newЭкипаж);
 
-                    int maxNum = GetMaxNum();
-                    int maxPor = GetMaxPor();
-
-
-                    экипажи newЭкипаж = new экипажи()
-                    {
-                        экипаж = Guid.NewGuid(),
-                        прим = "",
-                        номер = maxNum + 1,
-                        дистанция = клДистанция.дистанция,
-                        место = 0,
-                        итог = 0,
-                        школа = клШкола.школа,
-                        школы = выбр_школа,
-                        судно = клСудно.судно,
-                        суда = выбр_судно
-                    };
-                    de.экипажи.Local.Add(newЭкипаж);
-
-                    результаты newRow = new результаты
-                    {
-                        итог = 0,
-                        время_сек = 0,
-                        время_мин = 0,
-                        попытка = 1,
-                        результат = Guid.NewGuid(),
-                        секунд = 0,
-                        штраф = 0,
-                        экипаж = newЭкипаж.экипаж,
-                        экипажи = newЭкипаж,
-                        зачетный = false,
-                        порядок = maxPor + 1,
-                        старт = DateTime.Today,
-                        финиш = DateTime.Today,
-                        прим = ""
-                    };
+                результаты newRow = new результаты
+                {
+                    итог = 0,
+                    время_сек = 0,
+                    время_мин = 0,
+                    попытка = 1,
+                    результат = Guid.NewGuid(),
+                    секунд = 0,
+                    штраф = 0,
+                    экипаж = newЭкипаж.экипаж,
+                    экипажи = newЭкипаж,
+                    зачетный = false,
+                    порядок = maxPor + 1,
+                    старт = DateTime.Today,
+                    финиш = DateTime.Today,
+                    прим = ""
+                };
 
 
-                    int stroka = bindingSource1.Add(newRow);
-                    bindingSource1.Position = stroka;
+                int stroka = bindingSource1.Add(newRow);
+                bindingSource1.Position = stroka;
 
 
-                    dataGridView1.Refresh();
-                }
+                dataGridView1.Refresh();
+            }
             //}
             dataGridView1.Focus();
 
@@ -781,7 +902,6 @@ namespace compWpf
 
         private void button13_Click(object sender, EventArgs e)
         {
-
             выборVучастников выборТуриста = new выборVучастников();
             выборТуриста.ShowDialog();
             if (выборТуриста.DialogResult == true)
@@ -851,30 +971,6 @@ namespace compWpf
 
             dataGridView1.Focus();
 
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            if (binList.Any(n => n.забег))
-            {
-
-                foreach (результаты rRow in binList.Where(n => n.забег))
-                {
-                    rRow.старт = DateTime.Now;
-                    rRow.финиш = rRow.старт;
-                    rRow.плывут = true;
-                   
-                    rRow.забег = false;
-                }
-                WMPLib.WindowsMediaPlayer wmp = new WMPLib.WindowsMediaPlayer();
-                wmp.URL = "СтартМ.wav";
-                wmp.controls.play();
-            }
-            else
-            {
-                MessageBox.Show("Отметьте экипажи...");
-                // как не испортить результаты? Если время больше нуля вторую попытку..
-            }
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -998,6 +1094,7 @@ namespace compWpf
                 oWord.Application.Quit(SaveChanges: false);
                 MessageBox.Show("Сбой Word " + ex.Message);
             }
+
 
         }
     }
