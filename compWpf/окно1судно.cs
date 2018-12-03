@@ -493,7 +493,13 @@ namespace compWpf
                 maxNum = de.экипажи.Local.Max(n => n.номер);
 
             }
-          
+            if (de.экипажи.Any(n=>n.дистанция==клДистанция.дистанция))
+            {
+               int  maxNum0 = de.экипажи.Where(n=>n.дистанция==клДистанция.дистанция).Max(n => n.номер);
+                if (maxNum0 > maxNum)
+                    maxNum = maxNum0;
+            }
+
             return maxNum;
 
         }
@@ -505,8 +511,14 @@ namespace compWpf
             {
                 maxPor = de.результаты.Local.Max(n => n.порядок);
             }
+            if (de.результаты.Any(n => n.экипажи.дистанция == клДистанция.дистанция))
+            {
+                int maxPor0 = de.результаты.Where(n => n.экипажи.дистанция == клДистанция.дистанция).Max(n => n.порядок);
+                if (maxPor0 > maxPor)
+                    maxPor = maxPor0;
+            }
 
-     
+
             return maxPor;
         }
 

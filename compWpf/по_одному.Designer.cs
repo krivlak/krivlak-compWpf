@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(по_одному));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,36 +46,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(по_одному));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.составColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.попыткаColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.минColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.секColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.в_секColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.штрафColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.итогColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.лутшийColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button15 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
-            this.зачетныйColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button12 = new System.Windows.Forms.Button();
-            this.примColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.местоColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.порядокColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.label3 = new System.Windows.Forms.Label();
@@ -77,20 +62,17 @@
             this.button6 = new System.Windows.Forms.Button();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.button5 = new System.Windows.Forms.Button();
-            this.судноColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.номерColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.стартColumn = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.забегColumn = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.клубColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button16 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -98,8 +80,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button16 = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.номерColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.судноColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.клубColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.составColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.попыткаColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.минColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.секColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.в_секColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.штрафColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.итогColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.лутшийColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.зачетныйColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.местоColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.порядокColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label8 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -109,88 +107,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // составColumn
-            // 
-            this.составColumn.DataPropertyName = "состав";
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.составColumn.DefaultCellStyle = dataGridViewCellStyle39;
-            this.составColumn.HeaderText = "состав";
-            this.составColumn.Name = "составColumn";
-            this.составColumn.ReadOnly = true;
-            this.составColumn.Width = 200;
-            // 
-            // попыткаColumn
-            // 
-            this.попыткаColumn.DataPropertyName = "попытка";
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.попыткаColumn.DefaultCellStyle = dataGridViewCellStyle40;
-            this.попыткаColumn.HeaderText = "попытка";
-            this.попыткаColumn.Name = "попыткаColumn";
-            this.попыткаColumn.ReadOnly = true;
-            this.попыткаColumn.Width = 40;
-            // 
-            // минColumn
-            // 
-            this.минColumn.DataPropertyName = "время_мин";
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.минColumn.DefaultCellStyle = dataGridViewCellStyle41;
-            this.минColumn.HeaderText = "мин";
-            this.минColumn.Name = "минColumn";
-            this.минColumn.Width = 40;
-            // 
-            // секColumn
-            // 
-            this.секColumn.DataPropertyName = "время_сек";
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.секColumn.DefaultCellStyle = dataGridViewCellStyle42;
-            this.секColumn.HeaderText = "секунд";
-            this.секColumn.Name = "секColumn";
-            this.секColumn.Width = 40;
-            // 
-            // в_секColumn
-            // 
-            this.в_секColumn.DataPropertyName = "секунд";
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.в_секColumn.DefaultCellStyle = dataGridViewCellStyle43;
-            this.в_секColumn.HeaderText = "в сек.";
-            this.в_секColumn.Name = "в_секColumn";
-            this.в_секColumn.ReadOnly = true;
-            this.в_секColumn.Width = 60;
-            // 
-            // штрафColumn
-            // 
-            this.штрафColumn.DataPropertyName = "штраф";
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.штрафColumn.DefaultCellStyle = dataGridViewCellStyle44;
-            this.штрафColumn.HeaderText = "штраф";
-            this.штрафColumn.Name = "штрафColumn";
-            this.штрафColumn.Width = 60;
-            // 
-            // итогColumn
-            // 
-            this.итогColumn.DataPropertyName = "итог";
-            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.итогColumn.DefaultCellStyle = dataGridViewCellStyle45;
-            this.итогColumn.HeaderText = "итог";
-            this.итогColumn.Name = "итогColumn";
-            this.итогColumn.ReadOnly = true;
-            this.итогColumn.Width = 60;
-            // 
-            // лутшийColumn
-            // 
-            this.лутшийColumn.DataPropertyName = "лучший";
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.лутшийColumn.DefaultCellStyle = dataGridViewCellStyle46;
-            this.лутшийColumn.HeaderText = "лучший";
-            this.лутшийColumn.Name = "лутшийColumn";
-            this.лутшийColumn.ReadOnly = true;
-            this.лутшийColumn.Width = 60;
             // 
             // button15
             // 
@@ -200,9 +118,11 @@
             this.button15.TabIndex = 157;
             this.button15.Text = "пересчет штрафов всех попыток";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // button11
             // 
+            this.button11.Enabled = false;
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button11.Location = new System.Drawing.Point(754, 42);
             this.button11.Name = "button11";
@@ -210,6 +130,7 @@
             this.button11.TabIndex = 156;
             this.button11.Text = "старт группы";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button14
             // 
@@ -221,6 +142,7 @@
             this.button14.TabIndex = 155;
             this.button14.Text = "удалить попытку";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button13
             // 
@@ -232,18 +154,7 @@
             this.button13.TabIndex = 154;
             this.button13.Text = "выбор туристов из списка";
             this.button13.UseVisualStyleBackColor = true;
-            // 
-            // зачетныйColumn
-            // 
-            this.зачетныйColumn.DataPropertyName = "зачетный";
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle47.NullValue = false;
-            this.зачетныйColumn.DefaultCellStyle = dataGridViewCellStyle47;
-            this.зачетныйColumn.HeaderText = "зачетный";
-            this.зачетныйColumn.Name = "зачетныйColumn";
-            this.зачетныйColumn.ReadOnly = true;
-            this.зачетныйColumn.Width = 40;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -254,17 +165,7 @@
             this.button12.TabIndex = 153;
             this.button12.Text = "Пересчет штрафов";
             this.button12.UseVisualStyleBackColor = true;
-            // 
-            // примColumn
-            // 
-            this.примColumn.DataPropertyName = "прим";
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.примColumn.DefaultCellStyle = dataGridViewCellStyle48;
-            this.примColumn.HeaderText = "примеч.";
-            this.примColumn.MaxInputLength = 25;
-            this.примColumn.Name = "примColumn";
-            this.примColumn.Width = 150;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button8
             // 
@@ -275,6 +176,7 @@
             this.button8.Size = new System.Drawing.Size(42, 35);
             this.button8.TabIndex = 145;
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -285,27 +187,7 @@
             this.button9.Size = new System.Drawing.Size(40, 32);
             this.button9.TabIndex = 146;
             this.button9.UseVisualStyleBackColor = true;
-            // 
-            // местоColumn
-            // 
-            this.местоColumn.DataPropertyName = "место";
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.местоColumn.DefaultCellStyle = dataGridViewCellStyle49;
-            this.местоColumn.HeaderText = "место";
-            this.местоColumn.Name = "местоColumn";
-            this.местоColumn.ReadOnly = true;
-            this.местоColumn.Width = 40;
-            // 
-            // порядокColumn
-            // 
-            this.порядокColumn.DataPropertyName = "порядок";
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.порядокColumn.DefaultCellStyle = dataGridViewCellStyle50;
-            this.порядокColumn.HeaderText = "порядок";
-            this.порядокColumn.Name = "порядокColumn";
-            this.порядокColumn.ReadOnly = true;
-            this.порядокColumn.Width = 40;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // dataGridView2
             // 
@@ -314,15 +196,15 @@
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.DataSource = this.bindingSource2;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle51.Format = "0;#;#";
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle33.Format = "0;#;#";
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle33;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView2.Location = new System.Drawing.Point(0, 136);
             this.dataGridView2.Name = "dataGridView2";
@@ -359,6 +241,7 @@
             this.button10.TabIndex = 147;
             this.button10.Text = "+ одиночка";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button7
             // 
@@ -370,6 +253,7 @@
             this.button7.TabIndex = 144;
             this.button7.Text = "удалить матросов";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button6
             // 
@@ -381,6 +265,7 @@
             this.button6.TabIndex = 143;
             this.button6.Text = "добавить матроса";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -392,65 +277,22 @@
             this.button5.TabIndex = 142;
             this.button5.Text = "добавить попытку";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // судноColumn
-            // 
-            this.судноColumn.DataPropertyName = "наимен_судна";
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.судноColumn.DefaultCellStyle = dataGridViewCellStyle52;
-            this.судноColumn.HeaderText = "судно";
-            this.судноColumn.Name = "судноColumn";
-            this.судноColumn.ReadOnly = true;
-            // 
-            // номерColumn
-            // 
-            this.номерColumn.DataPropertyName = "номер";
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.номерColumn.DefaultCellStyle = dataGridViewCellStyle53;
-            this.номерColumn.HeaderText = "номер";
-            this.номерColumn.Name = "номерColumn";
-            this.номерColumn.ReadOnly = true;
-            this.номерColumn.Width = 40;
-            // 
-            // стартColumn
-            // 
-            this.стартColumn.DataPropertyName = "старт_финиш";
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.стартColumn.DefaultCellStyle = dataGridViewCellStyle54;
-            this.стартColumn.HeaderText = "старт";
-            this.стартColumn.Name = "стартColumn";
-            this.стартColumn.Width = 60;
-            // 
-            // забегColumn
-            // 
-            this.забегColumn.DataPropertyName = "готов";
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.забегColumn.DefaultCellStyle = dataGridViewCellStyle55;
-            this.забегColumn.HeaderText = "забег";
-            this.забегColumn.Name = "забегColumn";
-            this.забегColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.забегColumn.Width = 80;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle56.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeight = 100;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.забегColumn,
-            this.стартColumn,
             this.номерColumn,
             this.судноColumn,
             this.клубColumn,
             this.составColumn,
-            this.примColumn,
             this.попыткаColumn,
             this.минColumn,
             this.секColumn,
@@ -462,15 +304,15 @@
             this.местоColumn,
             this.порядокColumn});
             this.dataGridView1.DataSource = this.bindingSource1;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle57.Format = "0;#;#";
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle48.Format = "0;#;#";
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 223);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -478,14 +320,6 @@
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView1.Size = new System.Drawing.Size(1464, 364);
             this.dataGridView1.TabIndex = 149;
-            // 
-            // клубColumn
-            // 
-            this.клубColumn.DataPropertyName = "клуб";
-            this.клубColumn.HeaderText = "школа";
-            this.клубColumn.Name = "клубColumn";
-            this.клубColumn.ReadOnly = true;
-            this.клубColumn.Width = 120;
             // 
             // bindingSource1
             // 
@@ -501,6 +335,7 @@
             this.button2.TabIndex = 141;
             this.button2.Text = "добавить экипаж";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -512,6 +347,7 @@
             this.button1.TabIndex = 140;
             this.button1.Text = "удалить экипаж";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -554,6 +390,17 @@
             this.panel1.Size = new System.Drawing.Size(1464, 223);
             this.panel1.TabIndex = 150;
             // 
+            // button16
+            // 
+            this.button16.Enabled = false;
+            this.button16.Location = new System.Drawing.Point(1216, 37);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(125, 32);
+            this.button16.TabIndex = 158;
+            this.button16.Text = "Подробности";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
+            // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -564,6 +411,7 @@
             this.button4.TabIndex = 139;
             this.button4.Text = "Word";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -580,6 +428,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.checkBox2);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.numericUpDown3);
             this.panel2.Controls.Add(this.numericUpDown2);
@@ -593,6 +442,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1464, 228);
             this.panel2.TabIndex = 151;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.ForeColor = System.Drawing.Color.Blue;
+            this.label7.Location = new System.Drawing.Point(952, 125);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(99, 33);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "label7";
             // 
             // numericUpDown3
             // 
@@ -663,7 +523,7 @@
             this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(26, 15);
+            this.checkBox1.Location = new System.Drawing.Point(12, 106);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(223, 83);
             this.checkBox1.TabIndex = 0;
@@ -671,32 +531,191 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // button16
+            // checkBox2
             // 
-            this.button16.Location = new System.Drawing.Point(1216, 37);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(125, 32);
-            this.button16.TabIndex = 158;
-            this.button16.Text = "Подробности";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBox2.Location = new System.Drawing.Point(13, 26);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(224, 52);
+            this.checkBox2.TabIndex = 8;
+            this.checkBox2.Text = "Внимание ";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
-            // label7
+            // номерColumn
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.ForeColor = System.Drawing.Color.Blue;
-            this.label7.Location = new System.Drawing.Point(43, 133);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(99, 33);
-            this.label7.TabIndex = 7;
-            this.label7.Text = "label7";
+            this.номерColumn.DataPropertyName = "номер";
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.номерColumn.DefaultCellStyle = dataGridViewCellStyle35;
+            this.номерColumn.HeaderText = "номер";
+            this.номерColumn.Name = "номерColumn";
+            this.номерColumn.ReadOnly = true;
+            this.номерColumn.Width = 40;
+            // 
+            // судноColumn
+            // 
+            this.судноColumn.DataPropertyName = "наимен_судна";
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.судноColumn.DefaultCellStyle = dataGridViewCellStyle36;
+            this.судноColumn.HeaderText = "судно";
+            this.судноColumn.Name = "судноColumn";
+            this.судноColumn.ReadOnly = true;
+            // 
+            // клубColumn
+            // 
+            this.клубColumn.DataPropertyName = "клуб";
+            this.клубColumn.HeaderText = "школа";
+            this.клубColumn.Name = "клубColumn";
+            this.клубColumn.ReadOnly = true;
+            this.клубColumn.Width = 120;
+            // 
+            // составColumn
+            // 
+            this.составColumn.DataPropertyName = "состав";
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.составColumn.DefaultCellStyle = dataGridViewCellStyle37;
+            this.составColumn.HeaderText = "состав";
+            this.составColumn.Name = "составColumn";
+            this.составColumn.ReadOnly = true;
+            this.составColumn.Width = 200;
+            // 
+            // попыткаColumn
+            // 
+            this.попыткаColumn.DataPropertyName = "попытка";
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.попыткаColumn.DefaultCellStyle = dataGridViewCellStyle38;
+            this.попыткаColumn.HeaderText = "попытка";
+            this.попыткаColumn.Name = "попыткаColumn";
+            this.попыткаColumn.ReadOnly = true;
+            this.попыткаColumn.Width = 40;
+            // 
+            // минColumn
+            // 
+            this.минColumn.DataPropertyName = "время_мин";
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.минColumn.DefaultCellStyle = dataGridViewCellStyle39;
+            this.минColumn.HeaderText = "мин";
+            this.минColumn.Name = "минColumn";
+            this.минColumn.Width = 40;
+            // 
+            // секColumn
+            // 
+            this.секColumn.DataPropertyName = "время_сек";
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.секColumn.DefaultCellStyle = dataGridViewCellStyle40;
+            this.секColumn.HeaderText = "секунд";
+            this.секColumn.Name = "секColumn";
+            this.секColumn.Width = 40;
+            // 
+            // в_секColumn
+            // 
+            this.в_секColumn.DataPropertyName = "секунд";
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.в_секColumn.DefaultCellStyle = dataGridViewCellStyle41;
+            this.в_секColumn.HeaderText = "в сек.";
+            this.в_секColumn.Name = "в_секColumn";
+            this.в_секColumn.ReadOnly = true;
+            this.в_секColumn.Width = 60;
+            // 
+            // штрафColumn
+            // 
+            this.штрафColumn.DataPropertyName = "штраф";
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.штрафColumn.DefaultCellStyle = dataGridViewCellStyle42;
+            this.штрафColumn.HeaderText = "штраф";
+            this.штрафColumn.Name = "штрафColumn";
+            this.штрафColumn.Width = 60;
+            // 
+            // итогColumn
+            // 
+            this.итогColumn.DataPropertyName = "итог";
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.итогColumn.DefaultCellStyle = dataGridViewCellStyle43;
+            this.итогColumn.HeaderText = "итог";
+            this.итогColumn.Name = "итогColumn";
+            this.итогColumn.ReadOnly = true;
+            this.итогColumn.Width = 60;
+            // 
+            // лутшийColumn
+            // 
+            this.лутшийColumn.DataPropertyName = "лучший";
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.лутшийColumn.DefaultCellStyle = dataGridViewCellStyle44;
+            this.лутшийColumn.HeaderText = "лучший";
+            this.лутшийColumn.Name = "лутшийColumn";
+            this.лутшийColumn.ReadOnly = true;
+            this.лутшийColumn.Width = 60;
+            // 
+            // зачетныйColumn
+            // 
+            this.зачетныйColumn.DataPropertyName = "зачетный";
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle45.NullValue = false;
+            this.зачетныйColumn.DefaultCellStyle = dataGridViewCellStyle45;
+            this.зачетныйColumn.HeaderText = "зачетный";
+            this.зачетныйColumn.Name = "зачетныйColumn";
+            this.зачетныйColumn.ReadOnly = true;
+            this.зачетныйColumn.Width = 40;
+            // 
+            // местоColumn
+            // 
+            this.местоColumn.DataPropertyName = "место";
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.местоColumn.DefaultCellStyle = dataGridViewCellStyle46;
+            this.местоColumn.HeaderText = "место";
+            this.местоColumn.Name = "местоColumn";
+            this.местоColumn.ReadOnly = true;
+            this.местоColumn.Width = 40;
+            // 
+            // порядокColumn
+            // 
+            this.порядокColumn.DataPropertyName = "порядок";
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.порядокColumn.DefaultCellStyle = dataGridViewCellStyle47;
+            this.порядокColumn.HeaderText = "порядок";
+            this.порядокColumn.Name = "порядокColumn";
+            this.порядокColumn.ReadOnly = true;
+            this.порядокColumn.Width = 40;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(85, 41);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(313, 108);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Старт";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Location = new System.Drawing.Point(466, 195);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(532, 197);
+            this.panel3.TabIndex = 154;
+            this.panel3.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
             // 
             // по_одному
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1464, 587);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
@@ -717,6 +736,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -774,5 +795,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
