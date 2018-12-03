@@ -229,10 +229,11 @@ namespace compWpf
 
         private void РезультатыWin_Click(object sender, RoutedEventArgs e)
         {
-            Cursor = Cursors.Wait;
-            выборVдистанции списокШкол = new выборVдистанции();
-            списокШкол.ShowDialog();
-            Cursor = null;
+            //Cursor = Cursors.Wait;
+            //выборVдистанции списокШкол = new выборVдистанции();
+            //списокШкол.ShowDialog();
+            //Cursor = null;
+          
         }
 
         private void штрафыWin_Click(object sender, RoutedEventArgs e)

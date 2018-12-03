@@ -52,8 +52,8 @@
             <MenuItem Header="Анализ">
                 <MenuItem Name="в_архив" Header=" В архив" Click="в_архив_Click" />
                <MenuItem  Name="заявкиWin" Header="Протокол дистанции"  Click="Штрафы3_Click"/>
-                <!--<MenuItem  Name="РезультатыWin" Header="Результаты"  Click="РезультатыWin_Click"/>
-                <MenuItem  Name="штрафыWin" Header="Штрафы"  Click="штрафыWin_Click"/>-->
+                <!--<MenuItem  Name="РезультатыWin" Header="Результаты"  Click="РезультатыWin_Click"/>-->
+                <!--<MenuItem  Name="штрафыWin" Header="Штрафы"  Click="штрафыWin_Click"/>-->
             </MenuItem>
                 
             <!--<MenuItem Header="Анализ">
